@@ -1,0 +1,324 @@
+/* MedLens Enhanced Styling for Patient Profile & PDF Upload */
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal Overlay */
+.medlens-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.25rem;
+}
+
+/* Modal Box */
+.medlens-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e3e9e6;
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.medlens-modal-header {
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid #e8eeeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafcfa;
+}
+
+.medlens-modal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e2926;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.medlens-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+
+.medlens-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.medlens-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.medlens-modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e8eeeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafcfa;
+}
+
+/* Form controls */
+.medlens-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.medlens-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 540px) {
+  .medlens-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.medlens-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.medlens-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.medlens-field input,
+.medlens-field select,
+.medlens-field textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #cfdad5;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1e2926;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.medlens-field input:focus,
+.medlens-field select:focus,
+.medlens-field textarea:focus {
+  outline: none;
+  border-color: #5f877d;
+  box-shadow: 0 0 0 3px rgba(95, 135, 125, 0.18);
+}
+
+.medlens-field textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Upload dropzone interactive state */
+.upload-card.drag-over {
+  border: 2px dashed #5f877d !important;
+  background: rgba(95, 135, 125, 0.08) !important;
+  transform: scale(1.005);
+}
+
+/* Processing indicator */
+.upload-processing-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  background: #edf5f2;
+  border: 1px solid #c2ded4;
+  border-radius: 10px;
+  margin: 1rem 0;
+  color: #1f4f43;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.upload-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(95, 135, 125, 0.3);
+  border-top-color: #3b7466;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+/* PDF Preview Modal */
+.medlens-preview-dialog {
+  max-width: 920px;
+  height: 86vh;
+}
+
+.pdf-preview-pane {
+  flex: 1;
+  width: 100%;
+  background: #f1f5f9;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  min-height: 480px;
+}
+
+.pdf-summary-pane {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8faf9;
+  border: 1px solid #e2e8e5;
+  border-radius: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.825rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+/* Report Action Buttons */
+.report-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  background: #eef5f2;
+  color: #26594d;
+  border: 1px solid #c4ded5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.report-action-btn:hover {
+  background: #dcece6;
+  color: #1a4239;
+}
+
+.report-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  color: #94a3b8;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.report-delete-btn:hover {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+/* Profile Clickable Cue */
+.profile {
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin: -6px -8px;
+}
+
+.profile:hover {
+  background: rgba(95, 135, 125, 0.12);
+}
+
+.profile .edit-hint {
+  font-size: 10px;
+  color: #61877e;
+  font-weight: 600;
+  margin-left: auto;
+  opacity: 0.8;
+}
+
+/* Toast Notifications */
+.medlens-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1200;
+  background: #1e2926;
+  color: #ffffff;
+  padding: 0.8rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.25);
+  animation: toastIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.medlens-toast.success {
+  border-left: 4px solid #5f877d;
+}
+
+.medlens-toast.error {
+  border-left: 4px solid #dc2626;
+}

@@ -2,24 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>MedLens - Healthcare Intelligence</title>
-    <meta name="description" content="MedLens — Personal healthcare intelligence, grounded lab results, and patient report timeline." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>MedLens — AI Medical Report Intelligence Platform</title>
+    <meta name="description" content="MedLens — Turn complex medical reports into clear, understandable health information with AI-powered analysis." />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="MedLens - Healthcare Intelligence" />
-    <meta property="og:description" content="MedLens — Personal healthcare intelligence, grounded lab results, and patient report timeline." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MedLens - Healthcare Intelligence" />
-    <meta name="twitter:description" content="MedLens — Personal healthcare intelligence, grounded lab results, and patient report timeline." />
+    
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-BUwopQyT.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C0DTqm2s.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- PDF.js for 100% Client-Side Private PDF Parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      if (window.pdfjsLib) {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+    </script>
+
+    <!-- React 18 & ReactDOM 18 UMD -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel Standalone JSX Compiler -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+    <!-- Chart.js & jsPDF -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- MedLens Design System Styles -->
+    <link rel="stylesheet" href="./assets/medlens-glass.css" />
+    <link rel="stylesheet" href="./assets/app-enhanced.css" />
+
+    <!-- MedLens Application Assets -->
+    <script src="./assets/translations.js"></script>
+    <script src="./assets/medical-nlp.js"></script>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Main MedLens React Application -->
+    <script type="text/babel" src="./assets/medlens-app.jsx"></script>
   </body>
 </html>
