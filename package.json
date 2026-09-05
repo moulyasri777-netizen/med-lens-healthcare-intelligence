@@ -1,12 +1,21 @@
 {
   "name": "med-lens-healthcare-intelligence",
-  "version": "1.0.0",
-  "description": "MedLens - Personal healthcare intelligence, grounded lab results, and patient report timeline",
+  "version": "2.1.0",
+  "description": "MedLens - AI Medical Report Intelligence Platform with Glassmorphism UI, 8-Language Translation, Client-Side PDF Parsing, AI Chat, and Nearby Healthcare Directory",
+  "main": "index.html",
   "scripts": {
     "start": "python serve.py",
-    "serve": "npx serve ."
+    "serve": "npx serve .",
+    "test": "node tests/medlens.test.js"
   },
-  "keywords": ["healthcare", "medical-intelligence", "patient-records", "lab-results", "react", "tailwind"],
+  "keywords": [
+    "healthcare-ai",
+    "medical-report-parser",
+    "pdf-ocr-extraction",
+    "patient-intelligence",
+    "glassmorphism-ui",
+    "multi-language-translation"
+  ],
   "author": "moulyasri777-netizen",
   "license": "MIT"
 }

@@ -7,6 +7,9 @@
     <meta name="description" content="MedLens — Turn complex medical reports into clear, understandable health information with AI-powered analysis." />
     <meta name="robots" content="index, follow" />
     
+    <!-- Content Security Policy for Production & CDN Safety -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';" />
+
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +41,9 @@
     <link rel="stylesheet" href="./assets/medlens-glass.css" />
     <link rel="stylesheet" href="./assets/app-enhanced.css" />
 
-    <!-- MedLens Application Assets -->
+    <!-- MedLens Core Modules -->
+    <script src="./assets/config.js"></script>
+    <script src="./assets/security.js"></script>
     <script src="./assets/translations.js"></script>
     <script src="./assets/medical-nlp.js"></script>
   </head>

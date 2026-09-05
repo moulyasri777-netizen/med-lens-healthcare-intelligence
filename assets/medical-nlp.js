@@ -1,5 +1,8 @@
 // MedLens Client-Side Medical NLP & Reference Range Extractor
 window.MedLensNLP = {
+  // Memoization Cache for NLP Parsing Efficiency
+  cache: {},
+
   knowledgeBase: [
     {
       id: "hb",
@@ -237,7 +240,15 @@ window.MedLensNLP = {
     }
   ],
 
+  // Extract medical parameters with caching and sanitization
   extractFromText: function(text) {
+    if (!text || typeof text !== 'string') return this.getDemoReport().parameters;
+    
+    var cacheKey = text.trim().substring(0, 200);
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
     var textLower = text.toLowerCase();
     var extracted = [];
     var seenIds = {};
@@ -248,7 +259,7 @@ window.MedLensNLP = {
         var idx = textLower.indexOf(alias);
         if (idx !== -1) {
           var snippet = textLower.substring(idx, Math.min(textLower.length, idx + 120));
-          var numMatch = snippet.match(/(\d+\.?\d*)/);
+          var numMatch = snippet.match(/(\\d+\\.?\\d*)/);
           if (numMatch) {
             var val = parseFloat(numMatch[1]);
             if (val > 0 && val < 5000) {
@@ -278,11 +289,9 @@ window.MedLensNLP = {
       });
     });
 
-    if (extracted.length === 0) {
-      return this.getDemoReport().parameters;
-    }
-
-    return extracted;
+    var result = extracted.length > 0 ? extracted : this.getDemoReport().parameters;
+    this.cache[cacheKey] = result;
+    return result;
   },
 
   getDemoReport: function() {
