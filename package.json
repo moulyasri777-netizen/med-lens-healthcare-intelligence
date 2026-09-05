@@ -1,0 +1,12 @@
+{
+  "name": "med-lens-healthcare-intelligence",
+  "version": "1.0.0",
+  "description": "MedLens - Personal healthcare intelligence, grounded lab results, and patient report timeline",
+  "scripts": {
+    "start": "python serve.py",
+    "serve": "npx serve ."
+  },
+  "keywords": ["healthcare", "medical-intelligence", "patient-records", "lab-results", "react", "tailwind"],
+  "author": "moulyasri777-netizen",
+  "license": "MIT"
+}
